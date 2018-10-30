@@ -1,7 +1,7 @@
 var config  = require("./../config/config");
 var fs  = require("fs");
 var winston  = require("winston");
-var * as DailyRotateFile  = require("winston-daily-rotate-file");
+var DailyRotateFile  = require("winston-daily-rotate-file");
 
 const dir = 'logs/';
 
