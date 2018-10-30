@@ -1,0 +1,26 @@
+var jwt  = require("jsonwebtoken");
+var config  = require("../config/config");
+var logger  = require("../utils/logger");
+
+module.exports.ensureAuth = function (req, res, next) {
+    if (!req.headers.authorization) {
+        return res.status(401).send({ success: false, data: 'Auth headers required' });
+    }
+    let token = req.headers.authorization;
+    jwt.verify(token, config.SECRET, function (err, decoded) {
+
+        if (err) {
+            logger.error(err);
+            if (err.name === 'TokenExpiredError') {
+                return res.status(401).send({ success: false, data: 'Auth token expired' });
+            }
+            if (err.name === 'JsonWebTokenError') {
+                return res.status(401).send({ success: false, data: 'Invalid token' });
+            }
+            return res.status(401).send({ success: false, data: err.message });
+        }
+        console.log(decoded);
+        req.decoded = decoded;
+        next();
+    });
+}
