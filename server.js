@@ -8,10 +8,9 @@ var fs = require("fs");
 var path = require("path");
 var helmet = require("helmet");
 var cors = require("cors");
-var os = require("express");
-var express = require("os");
+var os = require("os");
 
-var express = require('./config/config');
+var config = require('./config/config');
 const app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
