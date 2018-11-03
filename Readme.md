@@ -1,5 +1,4 @@
-# MobioTune
-> MobioTune api project using expressjs framework and mysql database
+
 
 ## Installation
 
@@ -19,7 +18,7 @@ DBUSER = <mysql databse username>
 DBPWD = <mysql databse password>
 SECRET = AIzaSyAQfxPJiounkhOjODEO5ZieffeBv6yft2Q
 ```
-* Create database in mysql, named - mobiotune
+* Create database in mysql, named - migente
 * Insert table - `npm run insert:table`
 
 ## Start an app
